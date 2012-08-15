@@ -1,0 +1,28 @@
+git add . 
+
+git add *.js  
+
+git commit 
+
+git commit -m "initial commit"  
+
+git commit -am 'update to index.php'   (auto stage and commit)
+
+git add test.php  
+
+git commit -am 'user authentication code added'  (list files added to stage)
+
+
+/////////////
+git branch
+
+git branch newName
+
+git checkout newName  
+
+git checkout -b branch name  ( create and switch to this branch)
+
+
+git add .
+
+git commit -m 'The Kiler Feature added'
