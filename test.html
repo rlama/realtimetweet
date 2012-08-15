@@ -1,0 +1,89 @@
+<! DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="socket.io.js"></script>
+<script src="js/jquery-1.7.1.min.js"></script>
+
+</head>
+
+<body>
+<h1>Particle System Example</h1>
+
+<div id="heartcounter">0</div>
+
+<div id="thankscounter">0</div>
+
+<canvas id="myCanvas"></canvas>
+
+</body>
+
+<script src="js/particle.js"> </script>
+
+	
+	<script>
+	
+		var socket = io.connect('http://localhost:8080');
+		
+		var tweets = {};
+	
+		$(document).ready(function() {
+
+			//var $container = $('#tweets');
+			var count = 0;
+	
+			socket.on('twitter', function(msg) {
+				
+				//count += parseInt(num);
+				//ss
+				//tweets.push(msg);
+				
+				if (msg.indexOf("heart") !== -1){
+				   addParticles(1, red);
+				   
+				   	var num = parseInt($('#heartcounter').html());
+				
+					num += 1;
+					
+					$('#heartcounter').html(num+'  ');
+				   
+				}
+				
+				if (msg.indexOf("thanks") !== -1){
+				   addParticles(1, green);
+				   
+				   	var numB = parseInt($('#thankscounter').html());
+				
+					numB += 1;
+					
+					$('#thankscounter').html(numB);
+				}
+	
+				
+			
+				
+				//counterNum += num;
+
+				// var existingHtml = $container.html();
+								
+													
+				//$container.append('<li>'+ count +'</li>');
+			});
+			
+			/*setInterval(function(){
+				$container.html(count);
+				count = 0;
+			},5000);*/
+			
+		});
+		
+	
+
+	</script>
+
+</html>
+<!-- http://www.i-avington.com/Posts/Post/using-nodejs-and-socketio-to-stream-tweets-from-the-twitter-api -->
